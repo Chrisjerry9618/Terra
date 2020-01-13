@@ -106,11 +106,6 @@ resource "aws_route_table_association" "1" {
   subnet_id      = "${aws_subnet.private-subnet1.id}"
   route_table_id = "${aws_route_table.private.id}"
 }
-resource "aws_key_pair" "key" {
-   key_name = "chrisops"
-   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCuEkrd7LdMpyvcpcXLHPqlFUhP7RmBqi6RMTiRJLOyXBiU3jE0urMW2JlHMe/TFgVC4F7DlswoOz7xPepe0L16NIrUL5d5X+fOJkVgS18U1CCJKdBi5ywUaNlvg/CwymdRoUiMPEaJ5q4o0WQ4cqCK/oa5g7w5Xin3RB/mvW+faO7ETpw6yYDsDlMYVr1ytq503hYKPfIjEQLnZdyPytj6cict2jllNbIkWLSxqLV5pOQeb54M+3SF4Z+2MVg/8rM5wDwTTYqoIEguBBnVKAzSVO6xppnJ6a+MByfeC/8jLZxr30r+UZrXW7wF+iANJcBlnmZ/x2MspP0acIXpTZ+v chrisdevops-21-11-2019"
-}
-
 resource "aws_security_group" "sg" {
   name        = "web-sg"
   description = "Allow TLS inbound traffic"
@@ -156,7 +151,7 @@ ingress {
 }
 resource "aws_instance" "ec2" {
   subnet_id = "${aws_subnet.public-subnet.id}"
-  key_name = "chrisops"
+  key_name = "chrisaws"
   instance_type = "t2.micro"
   ami = "ami-04b9e92b5572fa0d1"
   vpc_security_group_ids = ["${aws_security_group.sg.id}"]
