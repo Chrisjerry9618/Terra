@@ -123,7 +123,7 @@ resource "aws_security_group" "sg" {
     protocol    = "tcp"
     # Please restrict your ingress to only necessary IPs and ports.
     # Opening to 0.0.0.0/0 can lead to security vulnerabilities.
-    cidr_blocks = ["183.82.251.22/32", "52.76.93.21/32"] # add a CIDR block here
+    cidr_blocks = ["183.82.251.22/32", "52.76.93.21/32", "122.178.32.72/32"] # add a CIDR block here
   }
 ingress {
     # TLS (change to whatever ports you need)
